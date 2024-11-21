@@ -1,7 +1,6 @@
 #ifndef BASICO_H
 #define BASICO_H
 
-#include <GL/glut.h>
 #include <math.h>
 
 void inicializa()
@@ -12,6 +11,7 @@ void inicializa()
  glEnable(GL_LIGHT0);               // Ativa a luz 0
  glEnable(GL_COLOR_MATERIAL);
  glEnable(GL_TEXTURE_2D);
+ texturas();
 }
 
 void defineProjecaoPerspectiva(int largura, int altura)

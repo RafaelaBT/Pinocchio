@@ -124,12 +124,17 @@ void pinoquio(float size, float tronco, float cabeca, float braco, float perna)
 
             glPushMatrix();
                glTranslatef(0.0, 2.8, 0.0);
-               // Cabeça
-               glPushMatrix();
-                  glColor3f(1.0, 0.5, 0.0);
-                  glScalef(2.0, 2.0, 2.0);
-                  glutSolidSphere(1.0, 10.0, 10.0);
-               glPopMatrix();
+
+               glEnable(GL_TEXTURE_2D);
+                  glBindTexture(GL_TEXTURE_2D, textura);
+
+                  // Cabeça
+                  glPushMatrix();
+                     //glColor3f(1.0, 0.5, 0.0);
+                     glScalef(2.0, 2.0, 2.0);
+                     glutSolidSphere(1.0, 10.0, 10.0);
+                  glPopMatrix();
+               glDisable(GL_TEXTURE_2D);
 
                // Chapéu
                glPushMatrix();

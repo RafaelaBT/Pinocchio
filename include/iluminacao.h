@@ -26,19 +26,25 @@ void luzes()
 
 void mudaCor(float r, float g, float b)
 {
-   // Normalizar pra manter a intensidade constante
-   float soma = r + g + b;
-   if (soma > 0.0f) {
-      r = (r / soma) * intensidade;
-      g = (g / soma) * intensidade;
-      b = (b / soma) * intensidade;
-   } else {
-      // Luz branca, caso a soma seja zero
-      r = g = b = intensidade;
+   if (r == 1.0 && g == 1.0 && b == 1.0)
+   {
+      luzDifusa[0] = r, luzDifusa[1] = g, luzDifusa[2] = b;
    }
-   // Atualiza a luz difusa
-   luzDifusa[0] = r, luzDifusa[1] = g, luzDifusa[2] = b;
-
+   else {
+      // Normalizar pra manter a intensidade constante
+      float soma = r + g + b;
+      if (soma > 0.0f) {
+         r = (r / soma) * intensidade;
+         g = (g / soma) * intensidade;
+         b = (b / soma) * intensidade;
+      } else {
+         // Luz branca, caso a soma seja zero
+         r = g = b = intensidade;
+      }
+      // Atualiza a luz difusa
+      luzDifusa[0] = r, luzDifusa[1] = g, luzDifusa[2] = b;
+   }
+      
    glutPostRedisplay(); // Redesenha a cena
 }
 

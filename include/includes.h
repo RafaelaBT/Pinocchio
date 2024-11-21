@@ -1,6 +1,7 @@
 #ifndef INCLUDES_H
 #define INCLUDES_H
 
+#include "texturas.h"
 #include "basico.h"
 #include "iluminacao.h"
 #include "pinoquio.h"

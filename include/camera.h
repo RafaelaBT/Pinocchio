@@ -1,8 +1,10 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-void camera()
+void display()
 {
+ glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // Limpa os buffers de cor para a próxima cena
+
  glLoadIdentity();                        // Reinicia as transformações
 
  posX = distancia * cos(anguloCamera);
@@ -10,16 +12,9 @@ void camera()
  
  gluLookAt(posX, 10.0, posZ, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f);
 
- luzes();    
+ luzes();
 
  pinoquio(size, tronco, cabeca, braco, perna);             // Desenha cubo
-}
-
-void display()
-{
- glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);  // Limpa os buffers de cor para a próxima cena
-
- camera();
 
  glutSwapBuffers();  // Troca os buffers/evita o 'flickering' em animações
 }
