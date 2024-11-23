@@ -10,7 +10,8 @@ void inicializa()
  glEnable(GL_LIGHTING);             // Ativa a iluminação
  glEnable(GL_LIGHT0);               // Ativa a luz 0
  glEnable(GL_COLOR_MATERIAL);
- glEnable(GL_TEXTURE_2D);
+ glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+ glShadeModel(GL_SMOOTH);
  texturas();
 }
 

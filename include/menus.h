@@ -17,7 +17,7 @@ void menu(int opcao)
          tempo = 0.0f, velocidade = 16.0;
          animacao = false;
          posX = 0.0f, posZ = 0.0f;
-         distancia = 100.0f; anguloCamera = 0.0f;
+         distancia = 50.0f; anguloCamera = 0.0f;
          break;
       case 0:
          exit(0);

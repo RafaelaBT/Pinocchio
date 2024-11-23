@@ -4,6 +4,7 @@
 #include "texturas.h"
 #include "basico.h"
 #include "iluminacao.h"
+#include "formas.h"
 #include "pinoquio.h"
 #include "camera.h"
 #include "animacao.h"

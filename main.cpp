@@ -18,7 +18,7 @@ bool animacao = false;
 
 // Câmera
 float posX = 0.0f, posZ = 0.0f;
-float distancia = 100.0f, anguloCamera = 0.0f;
+float distancia = 50.0f, anguloCamera = 0.0f;
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "include/includes.h"

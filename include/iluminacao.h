@@ -3,7 +3,7 @@
 
 void luzes()
 {
-   GLfloat posicao[] = { 1.0f, 1.0f, 1.0f, 0.0f };
+   GLfloat posicao[] = { 2.0f, 2.0f, 2.0f, 0.0f };
    GLfloat luzAmbiente[] = {0.2f, 0.2f, 0.2f, 1.0f};
    GLfloat luzEspecular[] = {1.0f, 1.0f, 1.0f, 1.0f};
    

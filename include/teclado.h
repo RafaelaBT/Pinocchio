@@ -102,7 +102,7 @@ void tecladoEspecial(int tecla, int xPos, int yPos)
    switch(tecla)
    {
       case GLUT_KEY_UP:
-         if (distancia > 50.f)
+         if (distancia > 10.f)
          {
             distancia -= 1.0f;
          }

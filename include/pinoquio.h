@@ -31,14 +31,21 @@ void membrosSuperiores(float pos, float braco)
          glutSolidCube(1.0);
       glPopMatrix();
 
-      // Antebraço
-      glPushMatrix();
-         glTranslatef(0.0, -4.0, 0.0);
-         glRotatef(-15, 1.0, 0.0, 0.0);    // Rotaciona antebraço
-         glColor3f(1.0, 0.5, 0.0);
-         glScalef(1.0, 5.0, 1.5);
-         glutSolidCube(1.0);
-      glPopMatrix();
+      glEnable(GL_TEXTURE_2D);
+         glBindTexture(GL_TEXTURE_2D, textura);
+
+         // Antebraço
+         glPushMatrix();
+            glTranslatef(0.0, -4.0, 0.0);
+            glRotatef(-15, 1.0, 0.0, 0.0);    // Rotaciona antebraço
+            glColor3f(1.0, 0.5, 0.0);
+            glScalef(1.0, 5.0, 1.5);
+
+            cubo(1.0);
+            //glutSolidCube(1.0);
+         glPopMatrix();
+      glDisable(GL_TEXTURE_2D);
+      
    glPopMatrix();
 }
 
@@ -58,13 +65,20 @@ void membrosInferiores(float pos, float perna)
       glPushMatrix();
          glTranslatef(0.0, -5.5, -1.0);
 
+         //glDisable(GL_LIGHTING);
+         glEnable(GL_TEXTURE_2D);
+         glBindTexture(GL_TEXTURE_2D, textura);
+
          // Panturrilha
          glPushMatrix();
             glRotatef(20, 1.0, 0.0, 0.0); // Rotaciona panturrilha
             glColor3f(1.0, 0.5, 0.0);
             glScalef(1.5, 7.0, 1.5);
-            glutSolidCube(1.0);
+            cubo(1.0);
+            //glutSolidCube(1.0);
          glPopMatrix();
+         glDisable(GL_TEXTURE_2D);
+         //glEnable(GL_LIGHTING);
 
          // Pé
          glPushMatrix();
@@ -90,7 +104,7 @@ void pinoquio(float size, float tronco, float cabeca, float braco, float perna)
 
    glPushMatrix();
       glTranslatef(x, y, 0.0f);  // Move corpo
-      glRotatef(angulo, 0.0, 1.0, 0.0);      // Rotaciona corpo
+      glRotatef(angulo + 30.0, 0.0, 1.0, 0.0);      // Rotaciona corpo
 
       glPushMatrix();
          glRotatef(tronco + 6.0, 1.0, 0.0, 0.0);  // Rotaciona tronco + pescoço
@@ -116,11 +130,16 @@ void pinoquio(float size, float tronco, float cabeca, float braco, float perna)
             glRotatef(cabeca, 0.0, 1.0, 0.0);  // Rotaciona pescoço + cabeça
 
             // Pescoço
-            glPushMatrix();
-               glColor3f(1.0, 0.5, 0.0);
-               glScalef(1.0, 2.0, 1.0);
-               glutSolidCube(1.0);
-            glPopMatrix();
+            glEnable(GL_TEXTURE_2D);
+            glBindTexture(GL_TEXTURE_2D, textura);
+
+               glPushMatrix();
+                  glColor3f(1.0, 0.5, 0.0);
+                  glScalef(1.0, 2.0, 1.0);
+                  //glutSolidCube(1.0);
+                  cubo(1.0);
+               glPopMatrix();
+            glDisable(GL_TEXTURE_2D);
 
             glPushMatrix();
                glTranslatef(0.0, 2.8, 0.0);
@@ -128,12 +147,17 @@ void pinoquio(float size, float tronco, float cabeca, float braco, float perna)
                glEnable(GL_TEXTURE_2D);
                   glBindTexture(GL_TEXTURE_2D, textura);
 
+                  GLUquadric *quad = gluNewQuadric();
+                  gluQuadricTexture(quad, GL_TRUE); // Ativar mapeamento de textura
+                  gluQuadricNormals(quad, GLU_SMOOTH);
+
                   // Cabeça
                   glPushMatrix();
-                     //glColor3f(1.0, 0.5, 0.0);
+                     glColor3f(1.0, 0.5, 0.0);
                      glScalef(2.0, 2.0, 2.0);
-                     glutSolidSphere(1.0, 10.0, 10.0);
+                     gluSphere(quad, 1.0, 10.0, 10.0);
                   glPopMatrix();
+                  gluDeleteQuadric(quad);
                glDisable(GL_TEXTURE_2D);
 
                // Chapéu
