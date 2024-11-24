@@ -12,6 +12,13 @@ void atualiza(int value) {
       braco = -7.5 + 37.5 * sin(tempo);  // Oscila de -45 a 30
       perna = 0 + 15 * sin(tempo);       // Oscila de -15 a 15
 
+      x += 0.1f;
+      if (x > 98.0f)
+      {
+         x = -60.0f;
+      }
+
+
       glutPostRedisplay();                       // Re-renderiza
       glutTimerFunc(velocidade, atualiza, 0);    // Atualiza a cada 16ms (60 fps)
    }

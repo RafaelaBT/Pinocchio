@@ -104,7 +104,7 @@ void pinoquio(float size, float tronco, float cabeca, float braco, float perna)
 
    glPushMatrix();
       glTranslatef(x, y, 0.0f);  // Move corpo
-      glRotatef(angulo + 30.0, 0.0, 1.0, 0.0);      // Rotaciona corpo
+      glRotatef(angulo + 90.0, 0.0, 1.0, 0.0);      // Rotaciona corpo
 
       glPushMatrix();
          glRotatef(tronco + 6.0, 1.0, 0.0, 0.0);  // Rotaciona tronco + pescoço
