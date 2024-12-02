@@ -61,6 +61,10 @@ void carregaTextura(const char* filename)
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 
+     glTexImage2D(GL_TEXTURE_2D, 0, (channels == 4) ? GL_RGBA : GL_RGB, 
+               width, height, 0, (channels == 4) ? GL_RGBA : GL_RGB,
+               GL_UNSIGNED_BYTE, image);
+
     stbi_image_free(image);
 }
 
